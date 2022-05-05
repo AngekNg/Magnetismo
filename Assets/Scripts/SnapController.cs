@@ -7,11 +7,11 @@ public class SnapController : MonoBehaviour {
     public List<Transform> puntosAcople;
     public List<Arrastable> objetosArrastables;
     public float rangoAcople = 0.5f;
-
+    
     // Start is called before the first frame update
     void Start() {
         foreach (Arrastable arrastable in objetosArrastables) {
-            arrastable.arrastroFinalLlamadodevuelta = CuandoTermineArrastrado;
+            //arrastable.arrastroFinalLlamadodevuelta = CuandoTermineArrastrado;
         }
     }
 

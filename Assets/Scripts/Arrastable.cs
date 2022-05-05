@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Arrastable : MonoBehaviour {
 
-    public delegate void ArrastroFinalDelegate(Arrastable objetoArrastable);
+    //public delegate void ArrastroFinalDelegate(Arrastable objetoArrastable);
 
-    public ArrastroFinalDelegate arrastroFinalLlamadodevuelta;
+    //public ArrastroFinalDelegate arrastroFinalLlamadodevuelta;
 
-    private bool isArrastrando = false;
+    public bool isArrastrando = false;
     private Vector3 ratonPocicionInicalArerrastrado;
     private Vector3 imagenPocicionInicalArerrastrado;
 
     private void OnMouseDown() {
         isArrastrando = true;
+        transform.SetParent(null);
         ratonPocicionInicalArerrastrado = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         imagenPocicionInicalArerrastrado = transform.localPosition;
     }
@@ -26,6 +27,8 @@ public class Arrastable : MonoBehaviour {
 
     private void OnMouseUp() {
         isArrastrando = false;
-        arrastroFinalLlamadodevuelta(this);
+        //arrastroFinalLlamadodevuelta(this);
     }
+
+
 }
