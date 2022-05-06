@@ -9,8 +9,8 @@ public class MainMenu : MonoBehaviour {
         SceneManager.LoadScene("MainMenu");
     }
 
-    public void GameEscene() {
-        SceneManager.LoadScene("MagnetismoScene");
+    public void GameEscene(string nombreEscena) {
+        SceneManager.LoadScene(nombreEscena);
     }
 
     public void Exit() {
