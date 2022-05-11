@@ -9,12 +9,27 @@ public class Arrastable : MonoBehaviour {
     private Vector3 imagenPocicionInicalArerrastrado;
     public bool isColliding;
     public GameObject colisionando;
+   // Rigidbody2D rb;
+
+    private void Start() {
+        //rb = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update() {
+        if(isArrastrando){
+            if(Input.GetKeyDown("q"))
+            transform.Rotate(new Vector3(0,0,30));
+             if(Input.GetKeyDown("e"))
+            transform.Rotate(new Vector3(0,0,-30) );
+        }
+    }
 
     private void OnMouseDown() {
         isArrastrando = true;
         transform.SetParent(null);
         ratonPocicionInicalArerrastrado = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         imagenPocicionInicalArerrastrado = transform.localPosition;
+        
     }
 
     private void OnMouseDrag() {
@@ -23,7 +38,7 @@ public class Arrastable : MonoBehaviour {
         }
     }
 
-    private void OnMouseUp() {
+    private void OnMouseUp() {  
         isArrastrando = false;
         if(isColliding)
         {

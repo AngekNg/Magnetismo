@@ -4,27 +4,17 @@ using UnityEngine;
 
 public class RandomSpawn : MonoBehaviour {
 
-    [SerializeField] GameObject[] _objs;
     [SerializeField] Camera _camara;
     [SerializeField] int _offsetX;
     [SerializeField] int _offsetY;
-
-    GameObject _spawnedObject;
+    [SerializeField] GameObject _spawnedObject;
 
     int _randomX;
     int _randomY;
-    
-    void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            Spawn();
-        }
-    }
 
-    void Spawn() {
-        int randomObjectID = Random.Range(0, _objs.Length);
+    public void Spawn() {
         Vector2 position = GetRandomCoordenates();
-
-        _spawnedObject = Instantiate(_objs[randomObjectID], position, Quaternion.identity) as GameObject;
+        _spawnedObject = Instantiate(_spawnedObject, position, Quaternion.identity) as GameObject;
     }
 
     Vector2 GetRandomCoordenates() {
